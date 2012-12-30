@@ -25,7 +25,7 @@
 	        </div>
 	        <div id="newQuestionView" data-bind="visible: isLoggedIn()">
 	            <label for="newQuestion" id="questionPrompt"><span data-bind="text: userName"></span> wants to know...</label>
-	            <textarea cols=20 rows=2 id="newQuestion" name="newQuestion"></textarea>
+	            <textarea cols=20 rows=2 id="newQuestion" data-bind="value: newQuestionText"></textarea>
 	            <a id="addItem" class="button">Ask now!</a>
 	        </div>
 	    </section>

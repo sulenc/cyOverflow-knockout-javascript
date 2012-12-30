@@ -3,6 +3,7 @@ App.ViewModels.Overflow = function() {
 
 	self.userName = ko.observable("");
 	self.isLoggedIn = ko.observable(false);
+	self.newQuestionText = ko.observable("");
 
 	self.loginUser = function() {
 		self.isLoggedIn( self.userName != "");
