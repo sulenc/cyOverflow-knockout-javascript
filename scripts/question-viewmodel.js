@@ -17,6 +17,20 @@ App.ViewModels.Question = function(questionData) {
 		});
 	}
 
+	self.userVoted = function(voteValue) {
+		var userVote = self.getExistingVote(overflowViewModel.userName());
+		var userVoted = (userVote && userVote.value === voteValue);
+		return userVoted;
+	}
+
+	self.userVotedUp = ko.computed( function() {
+		return self.userVoted(1);
+	});
+
+	self.userVotedDown = ko.computed( function() {
+		return self.userVoted(-1);
+	});
+
 	self.removeExistingVote = function(existingVote) {
 		self.votes.remove( function(vote) {
 			return vote.voter === existingVote.voter;
