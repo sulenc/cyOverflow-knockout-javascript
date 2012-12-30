@@ -20,7 +20,7 @@
     <section id="userInput">
 	        <div id="loginView">
 	            <label for="userName" id="logInPrompt">Your name:</label>
-	            <input id="userName" type="text"/>
+	            <input id="userName" type="text" data-bind="value: userName" />
 	            <a id="logIn" class="button">That's me!</a>
 	        </div>
 	        <div id="newQuestionView">
@@ -55,6 +55,7 @@
 	    </ul>
 	</div>
 
+  <script type="text/javascript" src="scripts/overflow-viewmodel.js"></script>
   <script type="text/javascript" src="scripts/app.js"></script>
 </body>
 </html>
