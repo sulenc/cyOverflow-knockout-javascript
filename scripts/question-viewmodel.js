@@ -11,8 +11,28 @@ App.ViewModels.Question = function(questionData) {
 		}, 0 );
 	});
 
+	self.getExistingVote = function(voterName) {
+		return _(self.votes()).find(function(vote) {
+			return vote.voter === voterName;
+		});
+	}
+
+	self.removeExistingVote = function(existingVote) {
+		self.votes.remove( function(vote) {
+			return vote.voter === existingVote.voter;
+		});
+	}
+
 	self.addVote = function(voter,voteType) {
 		var voteValue = voteType === 'up' ? 1 : -1;
-		self.votes.push( {value: voteValue, voter: voter });
+		var existingVote = self.getExistingVote(voter);
+
+		if(existingVote) {
+			if(existingVote.value !== voteValue ){
+				self.removeExistingVote(existingVote);
+			}
+		} else {
+			self.votes.push({ value: voteValue, voter: voter });
+		}
 	}
 }
